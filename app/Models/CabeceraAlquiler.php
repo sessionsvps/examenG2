@@ -14,4 +14,9 @@ class CabeceraAlquiler extends Model
     public $timestamps = false;
 
     protected $guarded = ['id'];
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'id_cliente');
+    }
 }
