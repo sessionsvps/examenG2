@@ -57,7 +57,7 @@ class AlquilerController extends Controller
                 $videoModel->save();
             }
 
-            return view('alquileres.index', compact('alquileres'));
+            return view('alquileres.index');
         });
     }
 
