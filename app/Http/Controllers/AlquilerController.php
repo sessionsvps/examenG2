@@ -57,7 +57,7 @@ class AlquilerController extends Controller
                 $videoModel->save();
             }
 
-            return view('alquileres.index');
+            return redirect()->route('clientes.index');
         });
     }
 
