@@ -10,4 +10,8 @@ class CabeceraAlquiler extends Model
     use HasFactory;
 
     protected $table = 'cabecera_alquileres';
+
+    public $timestamps = false;
+
+    protected $guarded = ['id'];
 }
