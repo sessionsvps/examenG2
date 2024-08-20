@@ -56,9 +56,9 @@ class AlquilerController extends Controller
                 $videoModel->stock -= $video['cantidad'];
                 $videoModel->save();
             }
-
-            return redirect()->route('clientes.index');
         });
+
+        return redirect()->route('alquileres.index');
     }
 
 }
