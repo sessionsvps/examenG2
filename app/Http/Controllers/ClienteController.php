@@ -15,4 +15,15 @@ class ClienteController extends Controller
         $clientes = Cliente::all();
         return view('clientes.index', compact('clientes'));
     }
+
+    public function buscarPorDni($dni)
+    {
+        $cliente = Cliente::where('dni', $dni)->first();
+
+        if ($cliente) {
+            return response()->json(['exists' => true, 'cliente' => $cliente]);
+        } else {
+            return response()->json(['exists' => false]);
+        }
+    }
 }

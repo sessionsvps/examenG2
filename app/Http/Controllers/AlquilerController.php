@@ -2,63 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CabeceraAlquiler;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class AlquilerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $alquileres = CabeceraAlquiler::all();
+        return view('alquileres.index', compact('alquileres'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $ultimoAlquiler = CabeceraAlquiler::latest('id')->first();
+        $nroFicha = $ultimoAlquiler ? $ultimoAlquiler->id + 1 : 1;
+        $videos = Video::all();
+        return view('alquileres.create', compact('videos', 'nroFicha'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

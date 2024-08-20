@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_cliente');
             $table->datetime('fecha_venta');
-            $table->string('nro_ficha');
             $table->float('total');
             $table->foreign('id_cliente')->references('id')->on('clientes');
         });
